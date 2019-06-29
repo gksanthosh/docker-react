@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t santhoshgk/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run santhoshgk/docker-react npm run test -- --coverage
